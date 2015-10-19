@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/eric/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.0.1/support-annotations-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="1fce89a6428c51467090d7f424e4c9c3dbd55f7e">
+        <dex dex="/Users/eric/Developer/CoursaApp/app/build/intermediates/pre-dexed/debug/support-annotations-23.0.1-a777b96f7d8c17e9e95c5dcd93667e3eb685253a.jar" />
+    </item>
+    <item
+        jar="/Users/eric/Developer/CoursaApp/app/build/intermediates/exploded-aar/com.android.support/design/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="e5c61a3169221a89654ffcaaed47bba51cf071ad">
+        <dex dex="/Users/eric/Developer/CoursaApp/app/build/intermediates/pre-dexed/debug/classes-7adab1e9643a22456b7f67abec0a144eb47ac976.jar" />
+    </item>
+    <item
+        jar="/Users/eric/Developer/CoursaApp/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="d86429b0f0b3f3cafbeb78dda1b9d89119ccb05d">
+        <dex dex="/Users/eric/Developer/CoursaApp/app/build/intermediates/pre-dexed/debug/classes-1226743e6bbd9bb5d903c18a3b18d635fa3a9590.jar" />
+    </item>
+    <item
+        jar="/Users/eric/Developer/CoursaApp/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/libs/internal_impl-23.0.1.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="aa92916125166649d8ad4ba3940c3dd7515596d3">
+        <dex dex="/Users/eric/Developer/CoursaApp/app/build/intermediates/pre-dexed/debug/internal_impl-23.0.1-d3427a97b6740e5239e21f0af58f7b375c3587c6.jar" />
+    </item>
+    <item
+        jar="/Users/eric/Developer/CoursaApp/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.0.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.1"
+        sha1="c31e21b53ff2f74664e498248d01453a32e32d48">
+        <dex dex="/Users/eric/Developer/CoursaApp/app/build/intermediates/pre-dexed/debug/classes-aa50681a758443453fffeaa4287ee2ba30de7949.jar" />
+    </item>
+
+</items>
