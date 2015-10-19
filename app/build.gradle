@@ -20,8 +20,12 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile fileTree(include: ['*.jar'], dir: 'libs')
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.0.1'
     compile 'com.android.support:design:23.0.1'
+    compile files('src/main/java/com/omnibos/coursaapp/lib/Volley.jar')
+    compile files('src/main/java/com/omnibos/coursaapp/lib/json-lib-2.3-jdk13.jar')
+    compile files('src/main/java/com/omnibos/coursaapp/lib/commons-collections-3.2.jar')
+    compile files('src/main/java/com/omnibos/coursaapp/lib/commons-beanutils-1.7.0.jar')
 }

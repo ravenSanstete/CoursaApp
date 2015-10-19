@@ -7,14 +7,21 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
+
+import com.omnibos.coursaapp.client.com.omnibos.coursaapp.client.entity.User;
+import com.omnibos.coursaapp.client.com.omnibos.coursaapp.client.proc.UserProc;
 
 public class MainActivity extends AppCompatActivity {
 
     private Spinner mSpinner;
     private static final String[] foo_array={"请选择","lame","super lame"};
     private ArrayAdapter<String> adapter;
+
+    private Button button;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 if (!foo_array[position].equals("请选择"))
-                 Toast.makeText(MainActivity.this, foo_array[position], Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, foo_array[position], Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -37,6 +44,21 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+
+        button=(Button)findViewById(R.id.button);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                User a_usr=new User();
+                a_usr.setUid("394018349");
+                a_usr.setPassword("2323523");
+
+                UserProc.login(a_usr,getBaseContext());
+
+            }
+        });
+        /*for test*/
     }
 
     @Override
