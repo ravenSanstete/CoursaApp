@@ -110,7 +110,7 @@ public class User {
 	public JSONObject toJson(){
 		JSONObject jsonObject=new JSONObject();
 		try{
-			jsonObject.put("uid",uid);
+			jsonObject.put("username",username);
 			jsonObject.put("password",password);
 		}catch(JSONException ex){
 			ex.printStackTrace();

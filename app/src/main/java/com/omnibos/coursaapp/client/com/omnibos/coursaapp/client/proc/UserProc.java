@@ -11,6 +11,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.omnibos.coursaapp.client.com.omnibos.coursaapp.client.entity.User;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.lang.reflect.Method;
@@ -19,41 +20,49 @@ import java.lang.reflect.Method;
  * Created by apple on 15/10/19.
  */
 public class UserProc {
-    private static RequestQueue queue;
-    private static Context originContext;
-    private static final String URL="http://192.168.1.104:4000/u";
-    public static String login(User user,Context context){
+    private RequestQueue queue;
+    private Context originContext;
+    private final String pURL="http://192.168.1.104:4000/u";
+
+
+
+
+    /*for user login action*/
+    public String login(User user,Context context){
         if(queue==null||originContext!=context) {
             queue = Volley.newRequestQueue(context);
             originContext = context;
         }
 
-        Log.v("here:","***********************");
-
-        JSONObject jsonObject=user.toJson();
+        final JSONObject jsonObject=user.toJson();
         Log.v("json:",jsonObject.toString());
-        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.POST,URL,jsonObject,
+        JsonObjectRequest jsonObjectRequest=new JsonObjectRequest(Request.Method.POST,pURL+"?action=login",jsonObject,
                 new Response.Listener<JSONObject>() {
             @Override
             public void onResponse(JSONObject response) {
                 //打印请求后获取的json数据
-                Log.v("bbb", response.toString());
-
+                try{
+                    Log.v("Response:", response.getString("state"));
+                }catch(JSONException ex){
+                    ex.printStackTrace();
+                }
             }
 
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError arg0) {
                 // System.out.println("sorry,Error");
-                Log.v("aaa", arg0.toString());
             }
         });
 
 
         queue.add(jsonObjectRequest);
 
-        return "";
+        return "success";
     }
+
+
+
 
 
 }

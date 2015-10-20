@@ -12,6 +12,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.omnibos.coursaapp.client.com.omnibos.coursaapp.client.entity.User;
+import com.omnibos.coursaapp.client.com.omnibos.coursaapp.client.proc.ClientProc;
 import com.omnibos.coursaapp.client.com.omnibos.coursaapp.client.proc.UserProc;
 
 public class MainActivity extends AppCompatActivity {
@@ -51,10 +52,10 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 User a_usr=new User();
-                a_usr.setUid("394018349");
-                a_usr.setPassword("2323523");
+                a_usr.setUsername("hello");
+                a_usr.setPassword("123456");
 
-                UserProc.login(a_usr,getBaseContext());
+                ClientProc.User.login(a_usr,getApplicationContext());
 
             }
         });
