@@ -2,6 +2,7 @@ package com.omnibos.coursaapp;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
@@ -11,9 +12,18 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.omnibos.coursaapp.client.com.omnibos.coursaapp.client.entity.User;
 import com.omnibos.coursaapp.client.com.omnibos.coursaapp.client.proc.ClientProc;
 import com.omnibos.coursaapp.client.com.omnibos.coursaapp.client.proc.UserProc;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -51,15 +61,35 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                User a_usr=new User();
-                a_usr.setUsername("hello");
+                User a_usr = new User();
+                a_usr.setUsername("sanstete");
                 a_usr.setPassword("123456");
 
-                ClientProc.User.login(a_usr,getApplicationContext());
+                ClientProc.User.login(a_usr, getApplicationContext(), new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject jsonObject) {
+                        try {
+                            Log.v("Uid:", jsonObject.getString("uid"));
+                            Log.v("State:", jsonObject.getString("state"));
+                        } catch (JSONException ex) {
+                            ex.printStackTrace();
+                        }
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError volleyError) {
+                        Log.v("Volley Error:", volleyError.toString());
+                    }
+                });
+
+                ClientProc.User.testGet(getApplicationContext());
 
             }
         });
         /*for test*/
+
+
+
     }
 
     @Override
